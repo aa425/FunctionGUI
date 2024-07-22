@@ -19,7 +19,7 @@ def Label(parent, text="Default Text", font="Helvetica", size=12, color="black")
 def Place(widget, x, y):
     widget.place(x=x, y=y)
 
-def Font(name = 'arial', size = 20, weight = 10):
+def Font(name = 'arial', size = 20, weight = 'normal):
     font = tkfont.Font(family=name, size=size, weight=weight)
     return font
 
