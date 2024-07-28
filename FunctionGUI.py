@@ -1,8 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-
+from ttkbootstrap import Style
 from tkinter import font as tkfont
 from PIL import Image, ImageTk
+from tkinter import filedialog
+
 
 def Window(): 
     root = tk.Tk()
@@ -19,10 +21,20 @@ def Label(parent, text="Default Text", font="Helvetica", size=12, color="black")
 def Place(widget, x, y):
     widget.place(x=x, y=y)
 
-def Font(name = 'arial', size = 20, weight = 'normal):
-    font = tkfont.Font(family=name, size=size, weight=weight)
+def Font(name = 'arial', size = 20, weight = "bold"):
+    font = tkfont.Font(name = name, size = size, weight = weight)
     return font
 
+def OpenFile(title):
+    file_path = filedialog.askopenfilename(title="Select a file")
+    return file_path
+def ChexBox(parent, text = 'check me', variable=None, command = None):
+    checkbutton = ttk.Checkbutton(parent, text=text, variable=variable, command=command)
+
+
+
+def add(widget, padx = 10, pady = 10):
+    widget.pack(padx = padx, pady = pady)
 
 def BGImage(parent, bg_image_path = '', width=400 , height=300):
     # Load and set the background image
@@ -34,19 +46,25 @@ def BGImage(parent, bg_image_path = '', width=400 , height=300):
     background_label.image = bg_photo  # Keep a reference to avoid garbage collection
     background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-def Button(parent, text="Button", command=None, font="Helvetica", size=12, bg="black", fg="black", width=20, height=20, padx = 10, pady = 10):
+def Button(parent, text="Button", command=None, font="Helvetica", size=12, bg="black", fg="black", width=20, height=20):
     button = tk.Button(parent, text=text, command=command, font=(font, size), bg=bg, fg=fg, width=width, height=height)
-    button.pack(padx=padx, pady=pady)
     return button
 
-def Entry(parent, width=20, font="Helvetica", size=12, bg="white", fg="black", padx = 10, pady = 10):
+def Entry(parent, width=20, font="Helvetica", size=12, bg="white", fg="black"):
     entry = ttk.Entry(parent, width=width, font=(font, size), background=bg, foreground=fg)
-    entry.pack(padx=padx, pady=pady)
     return entry
 
 def GetEntry(entry):
     d = entry.get()
     return entry 
+
+def Design(theme):
+    style = Style(theme=theme)
+    return style
+
+def BulleanVar():
+    Variable = tk.BooleanVar()
+    return Variable
 
 def Run(window):
     window.mainloop()
