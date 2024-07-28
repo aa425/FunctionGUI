@@ -35,13 +35,18 @@ fg.Title(root, "New Window")
 # Create a custom font
 custom_font = fg.Font(name='Helvetica', size=16, weight='bold')
 
-# Create and place a label with the custom font
+# Create a label with the custom font
 label = fg.Label(root, text="Hello, World!", font='Helvetica', size=16, color="blue")
 
-# Create and place a button
-button = fg.Button(root, text="Click Me", command=lambda: print("Button clicked!"))
 
-# Create and place an entry field
+# Add/pack a widget
+fg.add(widget, padx = 10, pady = 10)
+
+# Create and p
+ChexBox(parent, text = 'check me', variable=None, command =lambda: print("Check Box")):
+
+
+# Create an entry field
 entry = fg.Entry(root, width=20, font="Helvetica", size=12, bg="white", fg="black", padx = 10, pady = 10)
 
 # Retrieve and print the text from the entry field on button click
@@ -49,6 +54,13 @@ def on_button_click():
     text = fg.GetEntry(entry)
     print(text.get())
 
+# Change the design of the app
+style = fg.Design(theme)
+
+# Boolean Variable (Use in checkboxes)
+Boolean_Variable = BulleanVar()
+
+# Add a Button 
 button = fg.Button(root, text="Print Entry", command=on_button_click)
 
 # Set a background image
